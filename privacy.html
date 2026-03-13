@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High As A Clown - Privacy Policy</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background: linear-gradient(170deg, #1a0a2e 0%, #16213e 30%, #0f3460 60%, #533483 100%);
+            min-height: 100vh;
+            color: #e0d6f0;
+            overflow-x: hidden;
+        }
+
+        /* Animated stars background */
+        .stars {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .star {
+            position: absolute;
+            width: 3px; height: 3px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle var(--dur) ease-in-out infinite alternate;
+        }
+        @keyframes twinkle {
+            0% { opacity: 0.2; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1.3); }
+        }
+
+        /* Floating balloons */
+        .balloon-bg {
+            position: fixed;
+            width: 40px;
+            height: 50px;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            opacity: 0.12;
+            animation: floatUp var(--dur) ease-in-out infinite;
+            z-index: 0;
+        }
+        .balloon-bg::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            width: 1px;
+            height: 20px;
+            background: rgba(255,255,255,0.15);
+        }
+        @keyframes floatUp {
+            0%, 100% { transform: translateY(0) rotate(-3deg); }
+            50% { transform: translateY(-30px) rotate(3deg); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 60px 24px 100px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .header .icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff);
+            border-radius: 22px;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 44px;
+            box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3);
+            animation: iconPulse 3s ease-in-out infinite;
+        }
+        @keyframes iconPulse {
+            0%, 100% { box-shadow: 0 8px 32px rgba(255, 107, 107, 0.3); }
+            50% { box-shadow: 0 12px 48px rgba(255, 107, 107, 0.5); }
+        }
+        .header h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffd93d, #ff6b6b, #ff6bb5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+        }
+        .header .subtitle {
+            font-size: 1.1rem;
+            color: #a78bca;
+            margin-top: 8px;
+            font-weight: 400;
+        }
+        .header .date {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 6px 18px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: #8b7faa;
+        }
+
+        /* Cards */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 16px;
+        }
+        .card h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        .card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #c4b8d9;
+            font-weight: 400;
+        }
+        .card a {
+            color: #7eb8ff;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(126, 184, 255, 0.3);
+            transition: border-color 0.2s;
+        }
+        .card a:hover {
+            border-color: #7eb8ff;
+        }
+
+        /* Card accent colors */
+        .card-data .card-icon { background: linear-gradient(135deg, #6bcb77, #4d96ff); }
+        .card-gamecenter .card-icon { background: linear-gradient(135deg, #4d96ff, #533483); }
+        .card-ads .card-icon { background: linear-gradient(135deg, #ffd93d, #ff6b6b); }
+        .card-children .card-icon { background: linear-gradient(135deg, #ff6bb5, #ff6b6b); }
+        .card-changes .card-icon { background: linear-gradient(135deg, #a78bca, #4d96ff); }
+        .card-contact .card-icon { background: linear-gradient(135deg, #6bcb77, #ffd93d); }
+
+        /* Summary banner */
+        .summary {
+            background: linear-gradient(135deg, rgba(107, 203, 119, 0.15), rgba(77, 150, 255, 0.15));
+            border: 1px solid rgba(107, 203, 119, 0.2);
+            border-radius: 16px;
+            padding: 20px 28px;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .summary .badge {
+            flex-shrink: 0;
+            width: 42px; height: 42px;
+            background: rgba(107, 203, 119, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        .summary p {
+            font-size: 0.95rem;
+            color: #a5d6a7;
+            line-height: 1.5;
+        }
+        .summary strong { color: #6bcb77; }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            color: #6b5f82;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container { padding: 40px 16px 80px; }
+            .header h1 { font-size: 1.8rem; }
+            .card { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Animated stars -->
+<div class="stars" id="stars"></div>
+
+<!-- Floating balloons -->
+<div class="balloon-bg" style="left:5%;top:20%;background:#ff6b6b;--dur:6s;width:30px;height:38px"></div>
+<div class="balloon-bg" style="left:85%;top:10%;background:#4d96ff;--dur:8s;width:35px;height:44px"></div>
+<div class="balloon-bg" style="left:15%;top:55%;background:#ffd93d;--dur:7s;width:28px;height:35px"></div>
+<div class="balloon-bg" style="left:90%;top:45%;background:#6bcb77;--dur:5.5s;width:32px;height:40px"></div>
+<div class="balloon-bg" style="left:50%;top:75%;background:#ff6bb5;--dur:9s;width:26px;height:33px"></div>
+<div class="balloon-bg" style="left:75%;top:80%;background:#a78bca;--dur:7.5s;width:34px;height:42px"></div>
+
+<div class="container">
+    <div class="header">
+        <div class="icon">&#127913;</div>
+        <h1>Privacy Policy</h1>
+        <div class="subtitle">High As A Clown</div>
+        <div class="date">Last updated: March 13, 2026</div>
+    </div>
+
+    <div class="summary">
+        <div class="badge">&#9989;</div>
+        <p><strong>TL;DR</strong> &mdash; We don't collect your personal data. The app uses Game Center and AdMob, which are managed by Apple and Google respectively.</p>
+    </div>
+
+    <div class="card card-data">
+        <div class="card-icon">&#128274;</div>
+        <h2>Data We Collect</h2>
+        <p>The app itself does not collect, store, or transmit any personal data. No account or sign-up is required. Your gameplay stays on your device.</p>
+    </div>
+
+    <div class="card card-gamecenter">
+        <div class="card-icon">&#127918;</div>
+        <h2>Game Center</h2>
+        <p>The app uses Apple Game Center for leaderboards. Game Center is managed entirely by Apple under their own <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+    </div>
+
+    <div class="card card-ads">
+        <div class="card-icon">&#128240;</div>
+        <h2>Advertising</h2>
+        <p>We use Google AdMob to display ads. AdMob may collect device identifiers and usage data for ad personalization. You can opt out of personalized ads in your device settings under <strong>Settings &gt; Privacy &gt; Apple Advertising</strong>. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a> for details.</p>
+    </div>
+
+    <div class="card card-children">
+        <div class="card-icon">&#128167;</div>
+        <h2>Children's Privacy</h2>
+        <p>This app is not directed at children under 13. We do not knowingly collect any personal information from children.</p>
+    </div>
+
+    <div class="card card-changes">
+        <div class="card-icon">&#128196;</div>
+        <h2>Changes to This Policy</h2>
+        <p>We may update this policy from time to time. Any changes will be posted on this page with an updated revision date.</p>
+    </div>
+
+    <div class="card card-contact">
+        <div class="card-icon">&#9993;</div>
+        <h2>Contact</h2>
+        <p>Questions or concerns about this policy? Reach out at <a href="mailto:j.cruiser@live.com.au">j.cruiser@live.com.au</a> and we'll get back to you.</p>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 High As A Clown. All rights reserved.
+    </div>
+</div>
+
+<script>
+    // Generate animated stars
+    const starsEl = document.getElementById('stars');
+    for (let i = 0; i < 80; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        star.style.setProperty('--dur', (2 + Math.random() * 4) + 's');
+        star.style.animationDelay = Math.random() * 4 + 's';
+        star.style.width = star.style.height = (2 + Math.random() * 2) + 'px';
+        starsEl.appendChild(star);
+    }
+</script>
+</body>
+</html>
